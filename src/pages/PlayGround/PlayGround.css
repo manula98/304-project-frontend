@@ -1,0 +1,60 @@
+.pg-first-section{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.big-image{
+    width: 1500px;
+    height: 450px;
+    /* left: 90px;
+    top: 342px; */
+    /* margin-left: 60px; */
+}
+
+.small-image{
+    width: 800px;
+    height: 215px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    /* left: 800px;
+    top: 342px; */
+}
+
+.pg-second-section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+#pg-title{
+    width: 374px;
+    height: 65px;
+    margin-left: 70px;
+    /* left: 77px;
+    top: 967px; */
+    /* font-family: 'Poppins'; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 55px;
+    line-height: 82px;
+    text-align: center;
+    color: #023020;
+}
+
+#pg-rating{
+    width: 131px;
+    height: 40px;
+    margin-right: 10px;
+    /* left: 795px;
+    top: 986px; */
+    /* font-family: 'Poppins'; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    color: #023020;
+}

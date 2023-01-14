@@ -1,0 +1,39 @@
+import React from 'react'
+import "./Footer.css"
+import logo from 'photos/logo1.jpg';
+import { Link } from 'react-router-dom';
+
+function Footer() {
+  return (
+    <div>
+        <div className='empty-footer'>
+
+        </div>
+        <div className='footer-section'>
+            <div className='details-section' id='first-column'>
+               <div>
+                    <img className='logo-tree' src={logo} alt="tree" />
+               </div>
+                <div className='campus-details'>
+                    <h4>University of Peradeniya</h4>
+                    <p className='details' id='contact'>Address</p>
+                    <p className='details' id='contact'>Phone Number</p>
+                </div>
+            </div>
+            <div className='details-section' id='main'>
+                <h6>Main Navigation</h6>
+                <ul id='untitle-list'>
+                    <li className='details' id='link'><Link to='/About'>About</Link></li>
+                    <li className='details' id='link'><Link to='/Gallery'>Gallery</Link></li>
+                    <li className='details' id='link'><Link to='/Contact'>Contact</Link></li>
+                </ul>
+            </div>
+            <div className='details-section' id='quick'>
+                <h6>Quick Links</h6>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default Footer

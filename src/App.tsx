@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SignUp from "./pages/signup/SignUp";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./pages/login/Login";
+import NavBar from "Components/NavBar";
+import Footer from "Components/Footer";
+import Home from "pages/Home/Home";
+import Gallery from "pages/Gallery/Gallery";
+import Contact from "pages/Cantact/Contact";
+import About from "pages/About/About";
+import TeamCard from "pages/About/Components/TeamCard";
+import PlayGround from "pages/PlayGround/PlayGround";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Routes>
+          <Route path="/" element={<><NavBar /><Home /><Footer/></>} />
+          <Route path="/login" element={<><NavBar /><Login /><Footer/></>} />
+          <Route path="/signup" element={<><NavBar /><SignUp /><Footer/></>} />
+          <Route path="/gallery" element={<><NavBar /><Gallery /><Footer/></>} />
+          <Route path="/about" element={<><NavBar /><About /><Footer/></>} />
+          <Route path="/contact" element={<><NavBar /><Contact /><Footer/></>} />
+          <Route path="/playground" element={<><NavBar /><PlayGround /><Footer/></>} />
+          {/* <Route path="/" element={<TeamCard />} /> */}
+        </Routes>
+        {/* <SignUp /> */}
+        
     </div>
   );
 }
