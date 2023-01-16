@@ -1,3 +1,9 @@
+.whole-page{
+    /* background: linear-gradient(gray,white); */
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .back-page{
     background-image: url(photos/uni_photo.jpg);
     background-size: cover;
@@ -5,7 +11,8 @@
     height: 450px;
     border-radius: 20px;
     margin: auto;
-    margin-top: 100px;
+    /* margin-top: 30px;
+    margin-bottom: 30px; */
 }
 .logo{
     width: 77px;

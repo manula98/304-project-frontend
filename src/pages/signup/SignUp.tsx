@@ -35,7 +35,7 @@ function SignUp() {
   // }
 
   return (
-    <div>
+    <div style={{marginTop:'30px',marginBottom:'30px'}}>
         <form action="" method='' className='sign'>
         <img className='logo' src={image} alt="univetsity logo" />
         <h2 className='header'>SIGN UP</h2>

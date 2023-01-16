@@ -1,6 +1,6 @@
 .sign{
     box-sizing: border-box;
-    position: absolute;
+    margin: auto;
     width: 700px;
     height: 520px;
     left: 330px;

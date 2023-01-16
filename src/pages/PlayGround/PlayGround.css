@@ -45,6 +45,21 @@
     color: #023020;
 }
 
+.book-btn{
+    width: 130px;
+    height: 60px;
+    background: #A05D01;
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+
 #pg-rating{
     width: 131px;
     height: 40px;

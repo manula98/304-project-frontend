@@ -6,23 +6,25 @@ import { Link } from 'react-router-dom';
 
 function Login() {
   return (
-    <div className='back-page'>
-        <div className='login-data'>
-            <img className='logo' src={logo} alt="university logo" />
-             <h2 className='title'>LOGIN</h2>
-            <div className='login-input'>
-                <input type="text" id='username' className='input-area' placeholder='User Name' />
-                <input type="password" id='password' className='input-area' placeholder='Password' />
-            </div>
-            <div>
-            <p className='para'>If you not registered please Sign up </p>    
-                <div className='button-section'>
-                    <button className='btn' id='login-button'>Login</button>
-                    <button className='btn' id='signup-button'><Link to='/signup'>Sign Up</Link></button>
+   <div className='whole-page'>
+        <div className='back-page'>
+            <div className='login-data'>
+                <img className='logo' src={logo} alt="university logo" />
+                <h2 className='title'>LOGIN</h2>
+                <div className='login-input'>
+                    <input type="text" id='username' className='input-area' placeholder='User Name' />
+                    <input type="password" id='password' className='input-area' placeholder='Password' />
+                </div>
+                <div>
+                <p className='para'>If you not registered please Sign up </p>    
+                    <div className='button-section'>
+                     <button className='btn' id='login-button'>Login</button>
+                     <button className='btn' id='signup-button'><Link to='/signup'>Sign Up</Link></button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+   </div>
   )
 }
 

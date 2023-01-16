@@ -18,9 +18,9 @@ function App() {
   return (
     <div>
         <Routes>
-          <Route path="/" element={<><NavBar /><Home /><Footer/></>} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<><Home /><Footer/></>} />
+          <Route path="/login" element={<><NavBar /><Login /><Footer /></>} />
+          <Route path="/signup" element={<><NavBar /><SignUp /><Footer /></>} />
           <Route path="/gallery" element={<><NavBar /><Gallery /><Footer/></>} />
           <Route path="/about" element={<><NavBar /><About /><Footer/></>} />
           <Route path="/contact" element={<><NavBar /><Contact /><Footer/></>} />
@@ -30,8 +30,6 @@ function App() {
           {/* <Route path="/" element={<HomeCard />} /> */}
           {/* <Route path="/" element={<HomeCard1 />} /> */}
         </Routes>
-        {/* <SignUp /> */}
-        
     </div>
   );
 }
