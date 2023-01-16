@@ -21,8 +21,8 @@ function SignUp() {
   // const [shpw,setshpw]=useState<boolean>(true);
 
   useEffect(() => {
-    console.log(cpassword);  
-  },[lname,fname,email,password,cpassword]);
+    console.log(fname,lname,email,password,cpassword);  
+  },[fname,lname,email,password,cpassword]);
 
   // const handleClick=()=>{
   //   // alert();

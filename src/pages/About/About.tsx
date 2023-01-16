@@ -4,6 +4,54 @@ import uni2 from 'photos/uni2.jpg'
 import './About.css'
 import TeamCard from './Components/TeamCard'
 
+const team = [
+  {
+    name:"Prof.lamawansha",
+    position:"VC of university of peradeniya"
+  },
+  {
+    name:"Prof.abc",
+    position:"DVC of university of peradeniya"
+  },
+  {
+    name:"Prof.abc",
+    position:"DVC of university of peradeniya"
+  },
+  {
+    name:"Prof.abc",
+    position:"DVC of university of peradeniya"
+  },
+  {
+    name:"Prof.abc",
+    position:"DVC of university of peradeniya"
+  },
+  {
+    name:"Prof.abc",
+    position:"DVC of university of peradeniya"
+  }
+  // {
+  //   name:"Mr. Lamawansha",
+  //   position:"DVC of university of peradeniya"
+  // },
+  // {
+  //   name:"Mr. Lamawansha",
+  //   position:"DVC of university of peradeniya"
+  // },
+  // {
+  //   name:"Mr. Lamawansha",
+  //   position:"DVC of university of peradeniya"
+  // }
+]
+
+function createCard(team: any){
+  return(
+    <TeamCard
+      name={team.name}
+      post={team.position}
+    />
+  )
+}
+
 const About = () => {
   return (
     <div>
@@ -74,14 +122,7 @@ const About = () => {
           <hr className='line' id='team-line'/>
         </div>
         <div className='team-section'>
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
-        </div>
-        <div className='team-section'>
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
+          {team.map(createCard)}
         </div>
       </div>
     </div>

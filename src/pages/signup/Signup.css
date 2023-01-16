@@ -88,3 +88,34 @@
 .submit:hover{
     background: #66a8bc;
 }
+
+.hm-title{
+    width: 100%;
+    height: 65px;
+    margin-top: 40px;
+    /* left: 533px; */
+    /* top: 1092px; */
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 79px;
+    text-align: center;
+    color: #023020;
+}
+
+.hm-content{
+    width: 1206px;
+    height: 284px;
+    margin-left: 70px;
+    margin-top: 40px;
+    /* left: 114px; */
+    /* top: 1225px; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+}

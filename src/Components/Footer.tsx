@@ -23,9 +23,10 @@ function Footer() {
             <div className='details-section' id='main'>
                 <h6>Main Navigation</h6>
                 <ul id='untitle-list'>
-                    <li className='details' id='link'><Link to='/About'>About</Link></li>
-                    <li className='details' id='link'><Link to='/Gallery'>Gallery</Link></li>
-                    <li className='details' id='link'><Link to='/Contact'>Contact</Link></li>
+                    <li className='details' id='link'><Link to='/about'>About</Link></li>
+                    <li className='details' id='link'><Link to='/gallery'>Gallery</Link></li>
+                    <li className='details' id='link'><Link to='/contact'>Contact</Link></li>
+                    <li className='details' id='link'><Link to='/book'>Book Now</Link></li>
                 </ul>
             </div>
             <div className='details-section' id='quick'>

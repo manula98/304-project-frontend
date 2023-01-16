@@ -27,9 +27,23 @@ const PlayGround = () => {
        <div className='pg-second-section'>
         <div>
           <h2 id='pg-title'>Play Ground</h2>
+          <hr className='pg-line'/>
+          <p className='pg-content'>Lorem ipsum dolor sit amet. Et illum odio est voluptates inventore At praesentium similique qui nostrum quia aut suscipit dolorem vel voluptatem fugiat vel iusto galisum. Ut dolores nobis et necessitatibus necessitatibus in corrupti dolores quo esse dolorem non officiis corporis hic corrupti sequi. Vel incidunt cupiditate non quis voluptas et excepturi sint in voluptatum inventore est asperiores consequuntur qui maiores consequatur qui quia ullam. Et recusandae eligendi hic quia galisum ad atque sunt qui eligendi vitae!
+Qui totam similique et voluptatem totam et ipsum totam ut sunt veniam aut asperiores nulla. Sed consequatur repellendus eum accusamus rerum et minus neque aut repellendus molestiae eos ipsa delectus nam </p>
         </div>
         <div>
           <h4 id='pg-rating'>Ratings</h4>
+          <div className='pg-rating-star'>
+
+          </div>
+          <p id='rate-number'>256 ratings</p>
+          <div>
+            <h1 id='reviews-text'>Reviews</h1>
+            <div className='reviews-section'>
+              <div className='reviews-content'><p className='rw-content'>This place is amazing... We had a great time here.</p></div>
+              <div className='reviews-content'><p className='rw-content'>This place is amazing... We had a great time here.</p></div>
+            </div>
+          </div>
         </div>
        </div>
     </div>

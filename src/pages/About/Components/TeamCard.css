@@ -1,6 +1,7 @@
 .team-card{
     width: 250px;
     height: 250px;
+    margin-top: 20px;
     background: rgb(203, 194, 194);
     border-radius: 20px;
 }

@@ -1,0 +1,22 @@
+.hm-raw1{
+    width: 337px;
+    height: 220px;
+    /* left: 3px; */
+    /* top: 738px; */
+    background:  #A05D01;
+}
+
+.hm-raw-content{
+    width: 224px;
+    height: 182px;
+    /* left: 71px; */
+    /* top: 777px; */
+    font-family: 'Libre Baskerville';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 65px;
+    /* or 162% */
+    text-align: center;
+    color: #FFFFFF;
+}
