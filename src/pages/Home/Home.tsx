@@ -1,9 +1,6 @@
 import React from 'react'
 import uni from 'photos/uni2.jpg'
 import './Home.css'
-import NavBar from 'Components/NavBar'
-import HomeCard from './Components/HomeCard'
-import HomeCard1 from './Components/HomeCard1'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 import uni_logo from 'photos/uni_logo.png'
@@ -40,10 +37,18 @@ const Home = () => {
           <img className='hm-image' src={uni} alt="" />
       </div>
       <div style={{display:'flex'}}>
-        <HomeCard />
-        <HomeCard1 />
-        <HomeCard />
-        <HomeCard1 />
+        <div className='hm-raw'>
+          <p className='hm-raw-content'>World’s<br/> No.1<br/> University</p>
+        </div>
+        <div className='hm-raw' style={{background: '#A05D01'}}>
+          <p className='hm-raw-content'>World’s<br/> No.1<br/> University</p>
+        </div>
+        <div className='hm-raw'>
+          <p className='hm-raw-content'>World’s<br/> No.1<br/> University</p>
+        </div>
+        <div className='hm-raw' style={{background: '#A05D01'}}>
+          <p className='hm-raw-content'>World’s<br/> No.1<br/> University</p>
+        </div>
       </div>
       <div>
         <h1 className='hm-title'>University Of Peradeniya</h1>
@@ -79,13 +84,13 @@ const Home = () => {
 nam explicabo galisum aut galisum assumenda.  Cum neque perferendis quo sint nesciunt in iure voluptas ea voluptas </p>
           </div>
           <div>
-            <img className='hm-bottom-section-img' src={uni3} alt="" />
+            <img className='hm-bottom-section-img' src={uni3} alt="uinversity of peradeniya" />
           </div>
       </div>
       <div style={{display:'flex'}}>
-        <img className='bottom-img' src={uni1} alt="" />
-        <img className='bottom-img' src={uni2} alt="" />
-        <img className='bottom-img' src={uni4} alt="" />
+        <img className='bottom-img' src={uni1} alt="university of peradeniya" />
+        <img className='bottom-img' src={uni2} alt="university of peradeniya" />
+        <img className='bottom-img' src={uni4} alt="university of peradeniya" />
       </div>
     </div>
   )

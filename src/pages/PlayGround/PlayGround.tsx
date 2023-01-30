@@ -6,25 +6,36 @@ import uni3 from 'photos/uni3.jpg'
 import uni4 from 'photos/uni4.png'
 import './PlayGround.css'
 import { Link } from 'react-router-dom'
+import { ImageViewer } from 'react-image-viewer-dv'
 
 const PlayGround = () => {
   return (
     <div>
-       <div className='pg-first-section'>
+      <div className='pg-first-section'>
           <div>
-            <img className='big-image' src={uni} alt="university play ground" />
+            <ImageViewer>
+              <img className='big-image' src={uni} alt="university play ground" />
+            </ImageViewer>
           </div>
+        <div>
           <div>
-            <div>
+            <ImageViewer>
               <img className='small-image' src={uni1} alt="university play ground" />
+            </ImageViewer>
+            <ImageViewer>
               <img className='small-image' src={uni2} alt="university play ground" />
-            </div>
+            </ImageViewer>
           </div>
-          <div style={{marginLeft:'20px'}}>
+        </div>
+        <div style={{marginLeft:'20px'}}>
+            <ImageViewer>
               <img className='small-image' src={uni1} alt="university play ground" />
+            </ImageViewer>
+            <ImageViewer>
               <img className='small-image' src={uni2} alt="university play ground" />
-            </div>
-       </div>
+            </ImageViewer>
+          </div>
+      </div>
        <div className='pg-second-section'>
         <div>
           <h2 id='pg-title'>Play Ground</h2>

@@ -10,8 +10,6 @@ import Contact from "pages/Cantact/Contact";
 import About from "pages/About/About";
 import TeamCard from "pages/About/Components/TeamCard";
 import PlayGround from "pages/PlayGround/PlayGround";
-import HomeCard from "pages/Home/Components/HomeCard";
-import HomeCard1 from "pages/Home/Components/HomeCard1";
 import Book from "pages/Book/Book";
 
 function App() {
@@ -27,8 +25,6 @@ function App() {
           <Route path="/playground" element={<><NavBar /><PlayGround /><Footer/></>} />
           <Route path='/book' element={<><NavBar /><Book /><Footer /></>} />
           {/* <Route path="/" element={<TeamCard />} /> */}
-          {/* <Route path="/" element={<HomeCard />} /> */}
-          {/* <Route path="/" element={<HomeCard1 />} /> */}
         </Routes>
     </div>
   );

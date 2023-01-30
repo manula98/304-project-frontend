@@ -1,0 +1,22 @@
+.booking-title{
+    width: 282px;
+    height: 65px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 79px;
+    text-align: center;
+    color: #023020;
+}
+
+.booking-form{
+    width: 1221px;
+    height: 1082px;
+    background: #A05D01;
+    border-radius: 20px;
+    margin: auto;
+}
