@@ -8,60 +8,66 @@ const Book = () => {
           <form action="" method='' className='booking-form'>
             <div>
               <h1 className='check-details'>Availability Check</h1>
-              <div>
+              <div className='checkAvailable'>
                 <div>
-                  <label htmlFor="checkVenue">Venue Name</label>
-                  <input type="text" id='checkVenue' />
+                  <label htmlFor="checkVenue" className='labelText'>Venue Name</label>
+                  <input type="text" id='checkVenue' className='inputCheck' />
                 </div>
                 <div>
-                  <label htmlFor="checkDate">Date</label>
-                  <input type="date" id='checkDate' />
+                  <label htmlFor="checkDate" className='labelText'>Date</label>
+                  <input type="date" id='checkDate' className='inputCheck' />
                 </div>
                 <div>
-                  <label htmlFor="checkTime">Time</label>
-                  <input type="time" id='checkTime' />
-                  <p>to</p>
-                  <input type="time" id='checkTime' />
+                  <label htmlFor="checkTime" className='labelText'>Time</label>
+                  <input type="time" id='checkTime' className='inputCheck' />
+                </div>
+                <div>
+                  <label htmlFor="checkToTime" className='labelText'>To</label>
+                  <input type="time" id='checkToTime' className='inputCheck' />
                 </div>
               </div>
-              <button>Check</button>
+              <button className='checkButton'>Check</button>
             </div>
             <div>
-              <h1>Book the Location</h1>
-              <div>
-                <label htmlFor="bookingName">Full Name</label>
-                <input type="text" id='bookingName' />
-              </div>
-              <div>
-                <label htmlFor="bookingMail">E mail</label>
-                <input type="text" id='bookingMail' />
-              </div>
-              <div>
-                <label htmlFor="bookingNumber">Phone Number</label>
-                <input type="text" id='bookingNumber' />
-              </div>
-              <div>
-                <label htmlFor="bookingVenue">Venue Name</label>
-                <input type="text" id='bookingVenue' />
-              </div>
-              <div>
-                <label htmlFor="bookingRequirment">Requirments</label>
-                <textarea id='bookingRequirment'></textarea>
-              </div>
-              <div>
-                <div>
-                    <label htmlFor="bookingDate">Date</label>
-                    <input type="date" id='bookingDate' />
-                  </div>
-                  <div>
-                    <label htmlFor="bookingTime">Time</label>
-                    <input type="time" id='bookingTime' />
-                    <p>to</p>
-                    <input type="time" id='bookingTime' />
-                  </div>
+              <h1 className='bookLocation-title'>Book the Location</h1>
+              <div className='location-details'>
+                <div style={{marginTop:'15px'}}>
+                  <label htmlFor="bookingName" className='booking-details'>Full Name</label>
+                  <input type="text" id='bookingName' className='booking-area' />
+                </div>
+                <div style={{marginTop:'15px'}}>
+                  <label htmlFor="bookingMail" className='booking-details'>E mail</label>
+                  <input type="text" id='bookingMail' className='booking-area' />
+                </div>
+                <div style={{marginTop:'15px'}}>
+                  <label htmlFor="bookingNumber" className='booking-details'>Phone Number</label>
+                  <input type="text" id='bookingNumber' className='booking-area' />
+                </div>
+                <div style={{marginTop:'15px'}}>
+                  <label htmlFor="bookingVenue" className='booking-details'>Venue Name</label>
+                  <input type="text" id='bookingVenue' className='booking-area' />
+                </div>
+                <div style={{marginTop:'15px',display:'grid',gridTemplateColumns:'14% 86%'}}>
+                  <label htmlFor="bookingRequirment" className='booking-details'>Requirments</label>
+                  <textarea id='bookingRequirment'></textarea>
+                </div>
+                <div style={{marginTop:'15px'}}>
+                  <div style={{marginTop:'15px'}}>
+                      <label htmlFor="bookingDate" className='booking-details'>Date</label>
+                      <input type="date" id='bookingDate' className='booking-area' />
+                    </div>
+                    <div style={{marginTop:'15px'}}>
+                      <label htmlFor="bookingTime" className='booking-details'>Time</label>
+                      <input type="time" id='bookingTime' className='booking-area' />
+                    </div>
+                    <div style={{marginTop:'15px'}}>
+                      <label htmlFor="bookingToTime" className='booking-details'>To</label>
+                      <input type="time" id='bookingToTime' className='booking-area' />
+                    </div>
+                </div>
               </div>
             </div>
-            <button>Book</button>
+            <button className='book-button'>Book</button>
           </form>
     </div>
   )
