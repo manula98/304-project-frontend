@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import senate from 'photos/uni_photo.jpg';
 import logo from 'photos/uni_logo.png';
 import 'pages/login/Login.css'
 import { Link } from 'react-router-dom';
 
 function Login() {
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
+
+    // const handleTextInputChange=()=>{
+    //     setE
+    // }
   return (
    <div className='whole-page'>
         <div className='back-page'>
