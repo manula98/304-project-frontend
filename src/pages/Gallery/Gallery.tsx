@@ -2,27 +2,40 @@ import React from 'react'
 import uni1 from 'photos/uni1.jpg'
 import './Gallery.css'
 import { Link } from 'react-router-dom'
-// import { GalleryCard } from './Components/GalleryCard'
+import { GalleryCard } from './Components/GalleryCard'
+import { GalleryCard2 } from './Components/GalleryCard2'
+
 
 const gallery = [
   {
-    image:"photos/uni1.jpg",
+    image:"uni1",
     name:"Play Ground",
     discription:"Lorem ipsum dolor sit amet. Et illum odio est voluptate inven tore At ipraesntium similique qui nostrum quia aut suscipit hdolorem vel voluptatem fugiat vel iusto galisum. Ut dolor fdhgikes nobis et necessitatibus necessitatibus in corrupt hfdiiiolorkes quo esse dolorem non officiis corporis hic co gjkijfirrupti sequi. Vel incidunt cupiditate non quis volupta pgsiiis et excepturi sint in voluptatum inventore est asperi giipes consequuntur qui maiores consequatur qui quia ull am. Et recusandae eligendi hic quia galisum ad atque sun ui eligendi vitae!Qui totam similique et voluptatem totam et njdkjnbksnbipsum totam ut sunt veniam aut asperiores nulla. Sed consequatur repellendus eum accusamus rerum et minus hjkju ikkneque aut repellendus molestiae eos ipsa delectus nam",
     link:"/playground"
   }
 ]
 
-// function genareteGallery(gallery:any){
-//   <GalleryCard
-//     image = {gallery.image}
-//     name = {gallery.name}
-//     discription = {gallery.discription}
-//     link = {gallery.link}
-//   />
-// }
+function genareteGallery(gallery:any){
+  return(
+  <GalleryCard
+    image = {gallery.image}
+    name = {gallery.name}
+    discription = {gallery.discription}
+    link = {gallery.link}
+  />
+  )
+}
 
-
+function genareteGallery2(gallery:any){
+  return(
+    <GalleryCard2
+    image = {gallery.image}
+    name = {gallery.name}
+    discription = {gallery.discription}
+    link = {gallery.link}
+  />
+  )
+}
 
 
 const Gallery = () => {
@@ -30,6 +43,7 @@ const Gallery = () => {
     <div>
         <h2 className='gallery-header'>Gallery</h2>
           {/* {gallery.map(genareteGallery)} */}
+          {/* {gallery.map(genareteGallery2)} */}
         
         <div className='gallery-first-section'>
 

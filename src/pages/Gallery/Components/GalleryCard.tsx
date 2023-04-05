@@ -1,4 +1,5 @@
 import React from 'react'
+// import uni from 'photos/uni1.jpg'
 import { Link } from 'react-router-dom'
 import './GalleryCard.css'
 

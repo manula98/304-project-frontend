@@ -11,21 +11,109 @@ import About from "pages/About/About";
 import TeamCard from "pages/About/Components/TeamCard";
 import PlayGround from "pages/PlayGround/PlayGround";
 import Book from "pages/Book/Book";
+import { ToastContainer, toast } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div>
-        <Routes>
-          <Route path="/" element={<><Home /><Footer/></>} />
-          <Route path="/login" element={<><NavBar /><Login /><Footer /></>} />
-          <Route path="/signup" element={<><NavBar /><SignUp /><Footer /></>} />
-          <Route path="/gallery" element={<><NavBar /><Gallery /><Footer/></>} />
-          <Route path="/about" element={<><NavBar /><About /><Footer/></>} />
-          <Route path="/contact" element={<><NavBar /><Contact /><Footer/></>} />
-          <Route path="/playground" element={<><NavBar /><PlayGround /><Footer/></>} />
-          <Route path='/book' element={<><NavBar /><Book /><Footer /></>} />
-          {/* <Route path="/" element={<TeamCard />} /> */}
-        </Routes>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <>
+              <NavBar />
+              <Login />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <>
+              <NavBar />
+              <SignUp />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <>
+              <NavBar />
+              <Gallery />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <>
+              <NavBar />
+              <About />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <NavBar />
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/playground"
+          element={
+            <>
+              <NavBar />
+              <PlayGround />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/book"
+          element={
+            <>
+              <NavBar />
+              <Book />
+              <Footer />
+            </>
+          }
+        />
+        {/* <Route path="/" element={<TeamCard />} /> */}
+      </Routes>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={7000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
+      <ToastContainer />
     </div>
   );
 }
