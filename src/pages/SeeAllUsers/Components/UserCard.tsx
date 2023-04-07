@@ -3,8 +3,16 @@ import avatar from "photos/avater1.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const UserCard = ({ userId, email, userRole, telephone, setDeleteId }: any) => {
+const UserCard = ({
+  loginId,
+  userId,
+  email,
+  userRole,
+  telephone,
+  setDeleteId,
+}: any) => {
   const [user, setUser] = useState<any>();
+  const [loginEmail, setLoginEmail] = useState<any>();
 
   useEffect(() => {
     axios
@@ -13,6 +21,14 @@ const UserCard = ({ userId, email, userRole, telephone, setDeleteId }: any) => {
       .catch((err) => console.error(err));
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_BASE_URL}/getemailbyloginid/${loginId}`)
+      .then((res) => setLoginEmail(res.data.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  console.log("login>>>", loginEmail);
   const handleUserDelete = (e: any) => {
     e.preventDefault();
     setDeleteId(userId);
@@ -53,7 +69,7 @@ const UserCard = ({ userId, email, userRole, telephone, setDeleteId }: any) => {
             Email :
           </h1>
           <h1 className="text-white text-[20px] pt-[20px] font-bold">
-            {email}
+            {loginEmail}
           </h1>
         </div>
         <div className="flex w-full ml-[20px]">
