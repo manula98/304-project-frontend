@@ -18,6 +18,8 @@ import UserDetails from "pages/UserDetails/UserDetails";
 import EditProfile from "pages/EditProfile/EditProfile";
 import ComfirmedReservation from "pages/ComfirmedReservation/ComfirmedReservation";
 import SeeAllUsers from "pages/SeeAllUsers/SeeAllUsers";
+import AddResources from "pages/AddResources/AddResources";
+import SeeAllResources from "pages/SeeAllResources/SeeAllResources";
 
 function App() {
   return (
@@ -138,6 +140,26 @@ function App() {
             <>
               <NavBar />
               <SeeAllUsers />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/addResources"
+          element={
+            <>
+              <NavBar />
+              <AddResources />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/seeAllResources"
+          element={
+            <>
+              <NavBar />
+              <SeeAllResources />
               <Footer />
             </>
           }
