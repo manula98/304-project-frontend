@@ -1,83 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Book.css";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Book = () => {
+  const userJson = localStorage.getItem("loggedUser");
+  const userEmail = localStorage.getItem("userEmail");
+  const user: User | null = userJson ? JSON.parse(userJson).user : null;
+
   const [note, setNote] = useState<any>();
+  const [resources, setResources] = useState<any>([]);
   const [data, setData] = useState<any>({
-    venue: "",
+    resourceId: null,
     date: "",
     startTime: "",
     endTime: "",
+    userId: user?.userId,
   });
+
+  const navigate = useNavigate();
 
   interface User {
     userId: number;
     fname: string;
     lname: string;
-    // email: string;
     telephone: string;
     userRole: string;
     role: string;
-    // add any other properties that your user object has
   }
 
-  const userJson = localStorage.getItem("loggedUser");
-  const userEmail = localStorage.getItem("userEmail");
-  const user: User | null = userJson ? JSON.parse(userJson).user : null;
-
-  // const user = JSON.parse(localStorage.getItem("loggedUser"));
-  // const name = (user)
-  console.log("A:>>", user?.userRole);
+  console.log("A:>>", user?.userId);
 
   const [isAvailable, setIsAvailable] = useState<any>(false);
 
-  const resource = [
-    {
-      resourceId: "1",
-      resourceName: "plaground",
-      staffAvalibility: "true",
-      studentAvalibility: "true",
-      publicAvalibility: "true",
-    },
-    {
-      resourceId: "2",
-      resourceName: "Gymnasium",
-      staffAvalibility: "true",
-      studentAvalibility: "true",
-      publicAvalibility: "false",
-    },
-    {
-      resourceId: "3",
-      resourceName: "Cricket Ground",
-      staffAvalibility: "true",
-      studentAvalibility: "true",
-      publicAvalibility: "true",
-    },
-    {
-      resourceId: "4",
-      resourceName: "Rugby Ground",
-      staffAvalibility: "true",
-      studentAvalibility: "true",
-      publicAvalibility: "true",
-    },
-    {
-      resourceId: "5",
-      resourceName: "Stone Bungalow",
-      staffAvalibility: "true",
-      studentAvalibility: "false",
-      publicAvalibility: "false",
-    },
-    {
-      resourceId: "5",
-      resourceName: "Art Theatre",
-      staffAvalibility: "true",
-      studentAvalibility: "true",
-      publicAvalibility: "false",
-    },
-  ];
+  // get mapping for getting data
 
-  const placesUser = resource.filter(
-    (item: any) => item[`${user?.userRole}Avalibility`] === "true"
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_BASE_URL}/getAllResources`)
+      .then((res) => setResources(res.data.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const placesUser = resources.filter(
+    (item: any) => item[`${user?.userRole}Avalibility`] === true
   );
 
   const handleChange = (event: any) => {
@@ -88,7 +55,37 @@ const Book = () => {
     }));
   };
 
-  console.log("VEN:>>", data);
+  // console.log("VEN:>>", data);
+  //post mapping for reservation
+  const handleBooking = (e: any) => {
+    e.preventDefault();
+
+    var config = {
+      method: "post",
+      url: `${process.env.REACT_APP_API_BASE_URL}/addReservation`,
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      data: { ...data, note },
+    };
+
+    axios(config).then(function (response) {
+      if (response.data.status === 1) {
+        console.log(response.data.data);
+        // localStorage.setItem("loggedUser", JSON.stringify(response.data.data));
+        // localStorage.setItem("userId", data.userId);
+        toast.success("Reservation Successful");
+        navigate("/");
+        navigate(0);
+        return;
+      } else {
+        // toast.error(result.data.user.message);
+        toast.error("Reservation is not complete");
+        console.log("Reservation not complete");
+      }
+    });
+  };
+  console.log({ ...data, note });
+  // console.log(note);
+
   return (
     <div>
       <h1 className="booking-title">Booking</h1>
@@ -101,13 +98,14 @@ const Book = () => {
                 Venue Name
               </label>
               <select
+                name="resourceId"
                 id="checkVenue"
                 className="inputCheck"
                 onChange={(e) => handleChange(e)}
               >
-                {placesUser.map((item, index) => (
-                  <option value={item.resourceName} key={index}>
-                    {item.resourceName}
+                {placesUser?.map((item: any, index: any) => (
+                  <option value={item.resourceId} key={index}>
+                    {item?.resourceName}
                   </option>
                 ))}
               </select>
@@ -204,12 +202,14 @@ const Book = () => {
                 Venue Name
               </label>
               <select
+                disabled={true}
+                name="resourceId"
                 id="bookingVenue"
                 className="booking-area"
-                onChange={(e) => handleChange(e)}
+                value={data !== null ? data.resourceId : ""}
               >
-                {placesUser.map((item, index) => (
-                  <option value={item.resourceName} key={index}>
+                {placesUser.map((item: any, index: any) => (
+                  <option value={item.resourceId} key={index}>
                     {item.resourceName}
                   </option>
                 ))}
@@ -225,7 +225,12 @@ const Book = () => {
               <label htmlFor="bookingRequirment" className="booking-details">
                 Requirments
               </label>
-              <textarea id="bookingRequirment"></textarea>
+              <textarea
+                id="bookingRequirment"
+                onChange={(e: any) => {
+                  setNote(e.target.value);
+                }}
+              ></textarea>
             </div>
             <div style={{ marginTop: "15px" }}>
               <div style={{ marginTop: "15px" }}>
@@ -267,7 +272,9 @@ const Book = () => {
             </div>
           </div>
         </div>
-        <button className="book-button">Book</button>
+        <button className="book-button" onClick={(e) => handleBooking(e)}>
+          Book
+        </button>
       </form>
     </div>
   );

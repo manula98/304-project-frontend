@@ -14,6 +14,11 @@ import Book from "pages/Book/Book";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import UserDetails from "pages/UserDetails/UserDetails";
+import EditProfile from "pages/EditProfile/EditProfile";
+import ComfirmedReservation from "pages/ComfirmedReservation/ComfirmedReservation";
+import SeeAllUsers from "pages/SeeAllUsers/SeeAllUsers";
+
 function App() {
   return (
     <div>
@@ -93,6 +98,46 @@ function App() {
             <>
               <NavBar />
               <Book />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/userDetails"
+          element={
+            <>
+              <NavBar />
+              <UserDetails />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/editprofile"
+          element={
+            <>
+              <NavBar />
+              <EditProfile />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/comfirmedReservation"
+          element={
+            <>
+              <NavBar />
+              <ComfirmedReservation />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/seeAllUsers"
+          element={
+            <>
+              <NavBar />
+              <SeeAllUsers />
               <Footer />
             </>
           }
