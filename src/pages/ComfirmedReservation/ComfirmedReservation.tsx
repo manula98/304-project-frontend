@@ -20,7 +20,7 @@ const ComfirmedReservation = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  console.log(reservation);
+  console.log("AAAAfuck>>", reservation);
 
   return (
     <div>
@@ -29,7 +29,7 @@ const ComfirmedReservation = () => {
           Reservation
         </h1>
       </div>
-      <div className="ml-[15px] mb-[100px] mt-[50px] grid grid-flow-rows grid-cols-3 gap-8">
+      <div className="ml-[15px] mb-[100px] mt-[50px] grid grid-flow-rows gap-8">
         {reservation?.map((r: any) => (
           <>
             <ReservationCard

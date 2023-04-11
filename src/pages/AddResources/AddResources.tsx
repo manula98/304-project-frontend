@@ -74,11 +74,11 @@ const AddResources = () => {
   // console.log("AA>>", resource);
 
   return (
-    <div className="mb-[100px]">
+    <div className="">
       <div className="flex justify-center mt-[30px]">
         <h1 className="text-[40px] font-bold">Add Resources</h1>
       </div>
-      <div className="ml-[20px]">
+      <div className="">
         <div className="flex mt-5">
           <label
             htmlFor="resourceName"

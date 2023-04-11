@@ -8,6 +8,7 @@ import uni3 from "photos/uni3.jpg";
 import uni1 from "photos/uni1.jpg";
 import uni2 from "photos/uni2.jpg";
 import uni4 from "photos/uni4.jpeg";
+import { DropDown } from "Components/DropDown";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -102,9 +103,11 @@ const Home = () => {
                 </button>
               )}
             </li>
-            <li className="nav-icon" style={{ marginTop: "10px" }}>
-              <FaSearch />
-            </li>
+            {user?.token && (
+              <li className="nav-icon" style={{ marginTop: "-10px" }}>
+                <DropDown />
+              </li>
+            )}
           </ul>
         </div>
       </div>

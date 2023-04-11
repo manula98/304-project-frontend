@@ -19,3 +19,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.body-content {
+  margin: auto;
+  width: 100%;
+  /* margin-top: vh; */
+}
+
+
+  .admin-side-nav {
+      @apply z-20 flex-shrink-0 block w-64 h-screen overflow-y-auto bg-slate-400 rounded-tr-lg rounded-br-lg;
+  }
+
+
+
+  .admin-sub-panel-body {
+      @apply w-[80%] mx-auto rounded-lg h-auto ;
+  }

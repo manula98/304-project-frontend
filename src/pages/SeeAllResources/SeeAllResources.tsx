@@ -18,14 +18,14 @@ const SeeAllResources = () => {
     setResource(filterdData);
   }, [deleteId]);
 
-  console.log("resource>>", resource);
+  // console.log("resource>>", resource);
 
   return (
     <div>
       <div className="flex justify-center mt-[30px]">
         <h1 className="text-[40px] font-bold">All Resource Details</h1>
       </div>
-      <div className="grid grid-flow-row grid-cols-2">
+      <div className="grid grid-flow-row">
         {resource?.map((item: any) => (
           <>
             <ResourceCard

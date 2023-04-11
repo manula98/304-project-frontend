@@ -12,7 +12,7 @@ const SeeAllUsers = () => {
       .then((res) => setUser(res.data.data))
       .catch((err) => console.error(err));
   }, []);
-  console.log("AA>>>", user);
+  // console.log("AA>>>", user);
 
   useEffect(() => {
     const filterdData = user?.filter((r: any) => r.userId !== deleteId);
@@ -24,7 +24,7 @@ const SeeAllUsers = () => {
       <div className="flex justify-center mt-[30px]">
         <h1 className="text-[40px] font-bold">All Users Details</h1>
       </div>
-      <div className="grid grid-flow-rows grid-cols-3 mb-[100px] ml-[10px] gap-8">
+      <div className="grid grid-flow-rows grid-cols-2 mb-[20px] ml-[10px]">
         {user?.map((u: any) => (
           <>
             <UserCard

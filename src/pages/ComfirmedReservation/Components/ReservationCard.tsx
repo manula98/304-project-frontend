@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { FaCheck, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const ReservationCard = ({
@@ -19,9 +20,10 @@ const ReservationCard = ({
       .get(`${process.env.REACT_APP_API_BASE_URL}/getuserbyid/${userId}`)
       .then((res) => {
         if (res.data.status === 1) {
-          toast.success("Reservation Deleted");
+          setUser(res.data.data);
+          // toast.success("Reservation Deleted");
         } else {
-          toast.error("Reservation not Deleted");
+          // toast.error("Reservation not Deleted");
         }
       })
       .catch((err) => console.error(err));
@@ -32,7 +34,14 @@ const ReservationCard = ({
       .get(
         `${process.env.REACT_APP_API_BASE_URL}/getresourcebyid/${resourceId}`
       )
-      .then((res) => setResource(res.data.data))
+      .then((res) => {
+        if (res.data.status === 1) {
+          setResource(res.data.data);
+          // console.log("resource Added");
+        } else {
+          // console.log("resource not Added");
+        }
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -44,61 +53,77 @@ const ReservationCard = ({
       .delete(
         `${process.env.REACT_APP_API_BASE_URL}/deleteReservation/${reservationId}`
       )
-      .then((res) => setResource(res.data.data))
+      .then((res) => {
+        if (res.data.status === 1) {
+          setResource(res.data.data);
+          toast.success("Reservation Deleted");
+        } else {
+          toast.error("Reservation not Deleted");
+        }
+      })
       .catch((err) => console.error(err));
   };
 
   return (
-    <div className="bg-black w-[420px] h-[500px] rounded-[25px]">
-      <div className="flex w-full justify-around">
-        <h1 className="text-white text-[30px] pt-[20px] font-bold">
+    <div className="flex justify-around items-start bg-slate-900 w-[95%] h-[110px] rounded-[25px]">
+      <div className="">
+        <h1 className="text-white text-[15px] pt-[20px] font-bold">
+          Resource Name
+        </h1>
+        <h1 className="text-white text-[15px] pt-[10px] font-bold">
           {resource?.resourceName}
         </h1>
       </div>
-      <div className="mt-[30px]">
-        <div className="flex w-full ml-[20px]">
-          <h1 className="text-white text-[20px] w-[30%] pt-[20px] font-bold">
-            Name :
-          </h1>
-          <h1 className="text-white text-[20px] pt-[20px] font-bold">
-            {`${user?.fname} ${user?.lname}`}
-          </h1>
-        </div>
-        <div className="flex w-full ml-[20px]">
-          <h1 className="text-white text-[20px] w-[30%] pt-[20px] font-bold">
-            Date :
-          </h1>
-          <h1 className="text-white text-[20px] pt-[20px] font-bold">{date}</h1>
-        </div>
-        <div className="flex w-full ml-[20px]">
-          <h1 className="text-white text-[20px] w-[30%] pt-[20px] font-bold">
-            Start Time :
-          </h1>
-          <h1 className="text-white text-[20px] pt-[20px] font-bold">
-            {startTime}
-          </h1>
-        </div>
-        <div className="flex w-full ml-[20px]">
-          <h1 className="text-white text-[20px] w-[30%] pt-[20px] font-bold">
-            End Time :
-          </h1>
-          <h1 className="text-white text-[20px] pt-[20px] font-bold">
-            {endTime}
-          </h1>
-        </div>
+      {/* <div className="mt-[30px]"> */}
+      <div className="">
+        <h1 className="text-white text-[15px] w-full pt-[20px] font-bold">
+          Name
+        </h1>
+        <h1 className="text-white text-[15px] pt-[20px] font-bold">
+          {`${user?.fname}`}
+          {/* <br />
+          {`${user?.lname}`} */}
+        </h1>
       </div>
-      <div className="flex justify-around">
+      <div className="">
+        <h1 className="text-white text-[15px] w-full pt-[20px] font-bold">
+          Date
+        </h1>
+        <h1 className="text-white text-[15px] pt-[20px] font-bold">{date}</h1>
+      </div>
+      <div className="">
+        <h1 className="text-white text-[15px] w-full pt-[20px] font-bold">
+          Start Time
+        </h1>
+        <h1 className="text-white text-[15px] pt-[20px] font-bold">
+          {startTime}
+        </h1>
+      </div>
+      <div className="">
+        <h1 className="text-white text-[15px] w-full pt-[20px] font-bold">
+          End Time
+        </h1>
+        <h1 className="text-white text-[15px] pt-[20px] font-bold">
+          {endTime}
+        </h1>
+      </div>
+      {/* </div> */}
+      <div className="flex justify-around -mt-8">
         <div className="mt-[60px]">
-          <button className="w-[150px] h-[50px] rounded-[20px] text-white bg-green-500 font-bold text-[20px]">
-            Accept
+          <button className="w-[50px] h-[50px] rounded-[50px] text-white bg-green-600 hover:bg-green-400 font-bold text-[15px]">
+            <div className="flex justify-center">
+              <FaCheck />
+            </div>
           </button>
         </div>
         <div className="mt-[60px]">
           <button
-            className="w-[150px] h-[50px] rounded-[20px] text-white bg-red-600 font-bold text-[20px]"
+            className="w-[50px] h-[50px] rounded-[50px] ml-4 text-white bg-red-600 hover:bg-red-400 font-bold text-[15px]"
             onClick={handleDelete}
           >
-            Cancel
+            <div className="flex justify-center">
+              <FaTrash />
+            </div>
           </button>
         </div>
       </div>

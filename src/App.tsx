@@ -20,6 +20,11 @@ import ComfirmedReservation from "pages/ComfirmedReservation/ComfirmedReservatio
 import SeeAllUsers from "pages/SeeAllUsers/SeeAllUsers";
 import AddResources from "pages/AddResources/AddResources";
 import SeeAllResources from "pages/SeeAllResources/SeeAllResources";
+import Administrative from "pages/Administrative/Administrative";
+import EditAdministrative from "pages/EditAdministrative/EditAdministrative";
+import SeeAllAdministrative from "pages/SeeAllAdministrative/SeeAllAdministrative";
+import AddCategory from "pages/AddCategory/AddCategory";
+import AdminDashBoardHome from "pages/AdminDashBoard/AdminDashBoardHome";
 
 function App() {
   return (
@@ -124,7 +129,8 @@ function App() {
             </>
           }
         />
-        <Route
+        {/* admin Dashborad */}
+        {/* <Route
           path="/comfirmedReservation"
           element={
             <>
@@ -161,6 +167,56 @@ function App() {
               <NavBar />
               <SeeAllResources />
               <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/addAdministrative"
+          element={
+            <>
+              <NavBar />
+              <Administrative />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/updateAdministrative"
+          element={
+            <>
+              <NavBar />
+              <EditAdministrative />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/seeAllAdministrative"
+          element={
+            <>
+              <NavBar />
+              <SeeAllAdministrative />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/addCategory"
+          element={
+            <>
+              <NavBar />
+              <AddCategory />
+              <Footer />
+            </>
+          }
+        /> */}
+        <Route
+          path="/admindashboard/*"
+          element={
+            <>
+              <NavBar />
+              <AdminDashBoardHome />
+              {/* <Footer /> */}
             </>
           }
         />

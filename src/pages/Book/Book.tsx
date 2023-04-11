@@ -30,7 +30,7 @@ const Book = () => {
     role: string;
   }
 
-  console.log("A:>>", user?.userId);
+  // console.log("A:>>", user?.userId);
 
   const [isAvailable, setIsAvailable] = useState<any>(false);
 
@@ -42,6 +42,7 @@ const Book = () => {
       .then((res) => setResources(res.data.data))
       .catch((err) => console.error(err));
   }, []);
+  // console.log("resource>>", resources);
 
   const placesUser = resources.filter(
     (item: any) => item[`${user?.userRole}Avalibility`] === true
@@ -53,6 +54,7 @@ const Book = () => {
       ...prevFormData,
       [name]: value,
     }));
+    console.log(event.target.value);
   };
 
   // console.log("VEN:>>", data);
@@ -69,7 +71,7 @@ const Book = () => {
 
     axios(config).then(function (response) {
       if (response.data.status === 1) {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         // localStorage.setItem("loggedUser", JSON.stringify(response.data.data));
         // localStorage.setItem("userId", data.userId);
         toast.success("Reservation Successful");
@@ -83,8 +85,39 @@ const Book = () => {
       }
     });
   };
-  console.log({ ...data, note });
+  // console.log({ ...data, note });
   // console.log(note);
+  const [avalible, setAvalible] = useState<boolean>(false);
+  const checkAvalibility = (e: any) => {
+    e.preventDefault();
+
+    const request = {
+      resourceId: data.resourceId,
+      selectedDate: data.date,
+      selectedTimeFrom: data.startTime,
+      selectedTimeTo: data.endTime,
+    };
+    var config = {
+      method: "post",
+      url: `${process.env.REACT_APP_API_BASE_URL}/checkresourceavalibility`,
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      data: request,
+    };
+
+    axios(config).then(function (response) {
+      if (response.data.status === 1) {
+        setAvalible(true);
+        toast.success("Resource avalible");
+        return;
+      } else {
+        setAvalible(false);
+        toast.error("Resource not avalible");
+        console.log("Reservation not complete");
+      }
+    });
+  };
+
+  console.log("AAA>>", data);
 
   return (
     <div>
@@ -153,128 +186,137 @@ const Book = () => {
             style={{
               backgroundColor: data.startTime >= data.endTime ? "grey" : "",
             }}
-            disabled={data.startTime >= data.endTime ? true : false}
+            disabled={data?.startTime >= data?.endTime ? true : false}
+            onClick={checkAvalibility}
           >
             Check
           </button>
         </div>
-        <div>
-          <h1 className="bookLocation-title">Book the Location</h1>
-          <div className="location-details">
-            <div style={{ marginTop: "15px" }}>
-              <label htmlFor="bookingName" className="booking-details">
-                Full Name
-              </label>
-              <input
-                disabled={true}
-                type="text"
-                id="bookingName"
-                className="booking-area"
-                value={user !== null ? user.fname + " " + user.lname : ""}
-              />
-            </div>
-            <div style={{ marginTop: "15px" }}>
-              <label htmlFor="bookingMail" className="booking-details">
-                E mail
-              </label>
-              <input
-                disabled={true}
-                type="text"
-                id="bookingMail"
-                className="booking-area"
-                value={userEmail !== null ? userEmail : ""}
-              />
-            </div>
-            <div style={{ marginTop: "15px" }}>
-              <label htmlFor="bookingNumber" className="booking-details">
-                Phone Number
-              </label>
-              <input
-                disabled={true}
-                type="text"
-                id="bookingNumber"
-                className="booking-area"
-                value={user !== null ? user.telephone : ""}
-              />
-            </div>
-            <div style={{ marginTop: "15px" }}>
-              <label htmlFor="bookingVenue" className="booking-details">
-                Venue Name
-              </label>
-              <select
-                disabled={true}
-                name="resourceId"
-                id="bookingVenue"
-                className="booking-area"
-                value={data !== null ? data.resourceId : ""}
-              >
-                {placesUser.map((item: any, index: any) => (
-                  <option value={item.resourceId} key={index}>
-                    {item.resourceName}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div
-              style={{
-                marginTop: "15px",
-                display: "grid",
-                gridTemplateColumns: "14% 86%",
-              }}
-            >
-              <label htmlFor="bookingRequirment" className="booking-details">
-                Requirments
-              </label>
-              <textarea
-                id="bookingRequirment"
-                onChange={(e: any) => {
-                  setNote(e.target.value);
-                }}
-              ></textarea>
-            </div>
-            <div style={{ marginTop: "15px" }}>
-              <div style={{ marginTop: "15px" }}>
-                <label htmlFor="bookingDate" className="booking-details">
-                  Date
-                </label>
-                <input
-                  disabled={true}
-                  type="date"
-                  id="bookingDate"
-                  className="booking-area"
-                  value={data.date}
-                />
+
+        {avalible === true && (
+          <div>
+            <div>
+              <h1 className="bookLocation-title">Book the Location</h1>
+              <div className="location-details">
+                <div style={{ marginTop: "15px" }}>
+                  <label htmlFor="bookingName" className="booking-details">
+                    Full Name
+                  </label>
+                  <input
+                    disabled={true}
+                    type="text"
+                    id="bookingName"
+                    className="booking-area"
+                    value={user !== null ? user?.fname + " " + user?.lname : ""}
+                  />
+                </div>
+                <div style={{ marginTop: "15px" }}>
+                  <label htmlFor="bookingMail" className="booking-details">
+                    E mail
+                  </label>
+                  <input
+                    disabled={true}
+                    type="text"
+                    id="bookingMail"
+                    className="booking-area"
+                    value={userEmail !== null ? userEmail : ""}
+                  />
+                </div>
+                <div style={{ marginTop: "15px" }}>
+                  <label htmlFor="bookingNumber" className="booking-details">
+                    Phone Number
+                  </label>
+                  <input
+                    disabled={true}
+                    type="text"
+                    id="bookingNumber"
+                    className="booking-area"
+                    value={user !== null ? user?.telephone : ""}
+                  />
+                </div>
+                <div style={{ marginTop: "15px" }}>
+                  <label htmlFor="bookingVenue" className="booking-details">
+                    Venue Name
+                  </label>
+                  <select
+                    disabled={true}
+                    name="resourceId"
+                    id="bookingVenue"
+                    className="booking-area"
+                    value={data !== null ? data?.resourceId : ""}
+                  >
+                    {placesUser.map((item: any, index: any) => (
+                      <option value={item?.resourceId} key={index}>
+                        {item.resourceName}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div
+                  style={{
+                    marginTop: "15px",
+                    display: "grid",
+                    gridTemplateColumns: "14% 86%",
+                  }}
+                >
+                  <label
+                    htmlFor="bookingRequirment"
+                    className="booking-details"
+                  >
+                    Requirments
+                  </label>
+                  <textarea
+                    id="bookingRequirment"
+                    onChange={(e: any) => {
+                      setNote(e.target.value);
+                    }}
+                  ></textarea>
+                </div>
+                <div style={{ marginTop: "15px" }}>
+                  <div style={{ marginTop: "15px" }}>
+                    <label htmlFor="bookingDate" className="booking-details">
+                      Date
+                    </label>
+                    <input
+                      disabled={true}
+                      type="date"
+                      id="bookingDate"
+                      className="booking-area"
+                      value={data?.date}
+                    />
+                  </div>
+                  <div style={{ marginTop: "15px" }}>
+                    <label htmlFor="bookingTime" className="booking-details">
+                      Time
+                    </label>
+                    <input
+                      disabled={true}
+                      type="time"
+                      id="bookingTime"
+                      className="booking-area"
+                      value={data?.startTime}
+                    />
+                  </div>
+                  <div style={{ marginTop: "15px" }}>
+                    <label htmlFor="bookingToTime" className="booking-details">
+                      To
+                    </label>
+                    <input
+                      disabled={true}
+                      type="time"
+                      id="bookingToTime"
+                      className="booking-area"
+                      value={data?.endTime}
+                    />
+                  </div>
+                </div>
               </div>
-              <div style={{ marginTop: "15px" }}>
-                <label htmlFor="bookingTime" className="booking-details">
-                  Time
-                </label>
-                <input
-                  disabled={true}
-                  type="time"
-                  id="bookingTime"
-                  className="booking-area"
-                  value={data.startTime}
-                />
-              </div>
-              <div style={{ marginTop: "15px" }}>
-                <label htmlFor="bookingToTime" className="booking-details">
-                  To
-                </label>
-                <input
-                  disabled={true}
-                  type="time"
-                  id="bookingToTime"
-                  className="booking-area"
-                  value={data.endTime}
-                />
-              </div>
             </div>
+            <button className="book-button" onClick={(e) => handleBooking(e)}>
+              Book
+            </button>
           </div>
-        </div>
-        <button className="book-button" onClick={(e) => handleBooking(e)}>
-          Book
-        </button>
+        )}
       </form>
     </div>
   );

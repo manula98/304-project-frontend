@@ -32,7 +32,7 @@ const EditProfile = () => {
 
     var config = {
       method: "put",
-      url: "http://localhost:8080/updateUser",
+      url: `${process.env.REACT_APP_API_BASE_URL}/updateUser`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -43,11 +43,11 @@ const EditProfile = () => {
       .then(function (response) {
         if (response.data.status === 1) {
           console.log(JSON.stringify(response.data));
-          toast.success("USer Details Update Successful");
+          toast.success("User Details Update Successful");
           navigate("/");
           navigate(0);
         } else {
-          toast.error("USer Not Updated");
+          toast.error("User Not Updated");
           console.log("error");
         }
       })
@@ -55,7 +55,7 @@ const EditProfile = () => {
         console.log(error);
       });
   };
-  console.log("A>>", updateUser);
+  // console.log("A>>", updateUser);
 
   const handleChange = (e: any) => {
     setUpdateUser({ ...updateUser, [e.target.name]: e.target.value });
@@ -106,21 +106,6 @@ const EditProfile = () => {
             className="w-full h-[32px] outline-2 rounded-[10px] pl-4"
           />
         </div>
-        {/* <div className="flex mt-5">
-          <label
-            htmlFor="email"
-            className="text-start w-[25%] font-bold h-[25px] text-[20px]"
-            >
-            Email
-          </label>
-          <input
-            type="text"
-            id="email"
-            placeholder="Email"
-            className="w-full h-[32px] outline-2 rounded-[10px] pl-4"
-          />
-        </div> */}
-
         <div className="flex mt-5">
           <label
             htmlFor="telepone"
@@ -161,11 +146,12 @@ const EditProfile = () => {
       </div>
       <div className="w-full flex justify-center mb-[100px]">
         <button
-          className="bg-black w-[150px] h-[50px] mt-32 text-white font-bold rounded-[5px]"
+          className="bg-black w-[150px] h-[50px] mt-32 text-white font-bold rounded-[5px] hover:bg-green-600"
           onClick={handleUpdate}
         >
           Update
         </button>
+        {/* <button className="btn btn-accent w-[150px]">Button</button> */}
       </div>
     </div>
   );

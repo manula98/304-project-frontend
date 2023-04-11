@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 export const ResourceCard = ({
@@ -45,39 +46,29 @@ export const ResourceCard = ({
   console.log("AA>>");
 
   return (
-    <div className="bg-black w-[600px] h-[300px] rounded-[25px] mt-[20px] mb-[100px] ml-[20px]">
-      <div className="mt-[30px]">
-        <div className="flex w-full ml-[20px]">
-          <h1 className="text-white text-[20px] w-[30%] pt-[20px] font-bold">
-            Resource Name :
-          </h1>
-          <h1 className="text-white text-[20px] pt-[20px] font-bold">
-            {resourceName}
-          </h1>
+    <div className="bg-slate-900 w-[95%] h-[100px] rounded-[25px] mt-[10px] mb-[20px] ml-[20px]">
+      <div className="flex justify-between items-center mt-[30px]">
+        <div className="w-full ml-[20px]">
+          <h1 className="text-white text-[20px] font-bold">Resource Name</h1>
+          <h1 className="text-white text-[12px] font-bold">{resourceName}</h1>
         </div>
-        <div className="flex w-full ml-[20px]">
-          <h1 className="text-white text-[20px] w-[30%] pt-[20px] font-bold">
-            Category :
-          </h1>
-          <h1 className="text-white text-[20px] pt-[20px] font-bold">
-            {categoryName}
-          </h1>
+        <div className="w-full ml-[20px]">
+          <h1 className="text-white text-[20px] font-bold">Category</h1>
+          <h1 className="text-white text-[12px] font-bold">{categoryName}</h1>
         </div>
-        <div className="flex w-full ml-[20px]">
-          <h1 className="text-white text-[20px] w-[30%] pt-[20px] font-bold">
-            Description :
-          </h1>
-          <h1 className="text-white text-[20px] pt-[20px] font-bold">
-            {description}
-          </h1>
+        <div className="w-full ml-[20px]">
+          <h1 className="text-white text-[20px] font-bold">Description</h1>
+          <h1 className="text-white text-[12px] font-bold">{description}</h1>
         </div>
-        <div className="flex justify-around">
-          <div className="mt-[60px]">
+        <div className="-mt-[20px]">
+          <div className="mr-[10px]">
             <button
-              className="w-[200px] h-[50px] rounded-[20px] text-white bg-red-600 font-bold text-[20px]"
+              className="w-[40px] h-[40px] -ml-24 rounded-[50px] text-white bg-red-600 hover:bg-red-400 font-bold text-[12px]"
               onClick={handleResourceDelete}
             >
-              Delete Resource
+              <div className="flex justify-center">
+                <FaTrash />
+              </div>
             </button>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import uni_logo from "photos/uni_logo.png";
+import { DropDown } from "./DropDown";
 
 function NavBar() {
   const navigate = useNavigate();
@@ -84,22 +85,26 @@ function NavBar() {
                   LOGOUT
                 </button>
               ) : (
-                <button
-                  style={{
-                    border: "1px solid black",
-                    padding: "3px",
-                    paddingLeft: "15px",
-                    paddingRight: "15px",
-                    marginTop: "-10px",
-                  }}
-                >
-                  <Link to="/login">LOGIN</Link>
-                </button>
+                <Link to="/login">
+                  <button
+                    style={{
+                      border: "1px solid black",
+                      padding: "3px",
+                      paddingLeft: "15px",
+                      paddingRight: "15px",
+                      marginTop: "-10px",
+                    }}
+                  >
+                    LOGIN
+                  </button>
+                </Link>
               )}
             </li>
-            <li className="nav-icon" style={{ marginTop: "10px" }}>
-              <FaSearch />
-            </li>
+            {user?.token && (
+              <li className="nav-icon" style={{ marginTop: "-10px" }}>
+                <DropDown />
+              </li>
+            )}
           </ul>
         </div>
       </div>
