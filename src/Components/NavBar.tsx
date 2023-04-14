@@ -57,19 +57,16 @@ function NavBar() {
             <li className="nav-icon">
               <Link to="/about">About Us</Link>
             </li>
-            {user?.token && (
-              <li className="nav-icon">
-                <Link to="/gallery">Gallery</Link>
-              </li>
-            )}
+            <li className="nav-icon">
+              <Link to="/gallery">Gallery</Link>
+            </li>
+
             <li className="nav-icon">
               <Link to="/contact">Contact</Link>
             </li>
-            {user?.token && (
-              <li className="nav-icon">
-                <Link to="/book">Book Now</Link>
-              </li>
-            )}
+            <li className="nav-icon">
+              <Link to="/book">Book Now</Link>
+            </li>
             <li className="nav-icon">
               {user?.token ? (
                 <button

@@ -7,6 +7,7 @@ import uni_logo from "photos/uni_logo.png";
 import uni3 from "photos/uni3.jpg";
 import uni1 from "photos/uni1.jpg";
 import uni2 from "photos/uni2.jpg";
+import main from "photos/main.jpg";
 import uni4 from "photos/uni4.jpeg";
 import { DropDown } from "Components/DropDown";
 
@@ -62,19 +63,15 @@ const Home = () => {
             <li className="nav-icon">
               <Link to="/about">About Us</Link>
             </li>
-            {user?.token && (
-              <li className="nav-icon">
-                <Link to="/gallery">Gallery</Link>
-              </li>
-            )}
+            <li className="nav-icon">
+              <Link to="/gallery">Gallery</Link>
+            </li>
             <li className="nav-icon">
               <Link to="/contact">Contact</Link>
             </li>
-            {user?.token && (
-              <li className="nav-icon">
-                <Link to="/book">Book Now</Link>
-              </li>
-            )}
+            <li className="nav-icon">
+              <Link to="/book">Book Now</Link>
+            </li>
             <li className="nav-icon">
               {user?.token ? (
                 <button
@@ -114,7 +111,7 @@ const Home = () => {
       <div className="home-nav">
         <div>
           <h1 className="hm-header-text">University of Peradeniya</h1>
-          <h4 className="hm-header-sub-text">A Date in Pera...</h4>
+          <h4 className="hm-header-sub-text">A Vist to Pera...</h4>
         </div>
         <img className="hm-image" src={uni} alt="" />
       </div>
@@ -175,10 +172,10 @@ const Home = () => {
       </div>
       <div className="hm-second-section">
         <div>
-          <img className="hm-second-section-img" src={uni3} alt="" />
+          <img className="hm-second-section-img" src={main} alt="" />
         </div>
         <div>
-          <h1 className="hm-second-title">Some Title</h1>
+          <h1 className="hm-second-title">Welcome to pera</h1>
           <hr className="hm-second-line" />
           <p className="hm-second-content">
             Lorem ipsum dolor sit amet. Et illum odio est voluptates inventore

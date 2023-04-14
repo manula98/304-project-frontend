@@ -8,7 +8,7 @@ const Administrative = () => {
     "Choose Your Division",
     "Sport",
     "Special Hall",
-    "Special Place",
+    "Special Place in Campus",
   ];
 
   const handleChange = (e: any) => {
@@ -34,13 +34,13 @@ const Administrative = () => {
         console.log(response.data.data);
         // localStorage.setItem("loggedUser", JSON.stringify(response.data.data));
         // localStorage.setItem("userId", data.userId);
-        toast.success("Administrative Add Successful");
+        toast.success("Administrative Added Successful");
         // navigate("/");
         // navigate(0);
         return;
       } else {
         // toast.error(result.data.user.message);
-        toast.error("Administrative Add is not complete");
+        toast.error("Administrative Added is not complete");
         console.log("Reservation not complete");
       }
     });

@@ -39,19 +39,15 @@ function Footer() {
             <li className="details" id="link">
               <Link to="/about">About</Link>
             </li>
-            {user?.userId && (
-              <li className="details" id="link">
-                <Link to="/gallery">Gallery</Link>
-              </li>
-            )}
+            <li className="details" id="link">
+              <Link to="/gallery">Gallery</Link>
+            </li>
             <li className="details" id="link">
               <Link to="/contact">Contact</Link>
             </li>
-            {user?.userId && (
-              <li className="details" id="link">
-                <Link to="/book">Book Now</Link>
-              </li>
-            )}
+            <li className="details" id="link">
+              <Link to="/book">Book Now</Link>
+            </li>
           </ul>
         </div>
         <div className="details-section" id="quick">

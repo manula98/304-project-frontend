@@ -103,7 +103,7 @@ const AdminCard = ({
       </div>
       <div className="flex justify-center">
         <div className="mt-[30px]">
-          <Link to="/updateAdministrative">
+          <Link to="/admindashboard/updateAdministrative">
             <button
               className="w-[200px] h-[50px] rounded-[20px] text-white bg-green-600 hover:bg-green-400 font-bold text-[15px]"
               //   onClick={handleAdminDelete}

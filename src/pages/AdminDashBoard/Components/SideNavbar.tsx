@@ -10,7 +10,7 @@ function SideNavbar({ navdata }: any) {
       <div className="py-2 text-gray-500">
         <ul className="mt-3">
           {navdata?.map((data: any, i: number) => (
-            <li className="relative px-6 py-3" key={i}>
+            <li className="relative px-6 py-4" key={i}>
               {/* <span
                 // className={
                 //   location.pathname === `/dashboard/${Route}/admin${data.link}`

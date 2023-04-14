@@ -38,6 +38,10 @@ const UserDetails = () => {
       .catch((err) => console.error(err));
   }, []);
 
+  const placeUser = resource.filter(
+    (item: any) => item[`${user?.userRole}Avalibility`] == true
+  );
+
   //post feedback
 
   const handleFeedback = (e: any) => {
@@ -183,11 +187,11 @@ const UserDetails = () => {
             <select
               name="resourceId"
               id="feedbackResource"
-              className="w-[60%] h-[32px] outline-2 border-black border-2"
+              className="w-[60%] h-[32px] outline-2 pl-4 border-black border-2"
               onChange={handleChange}
             >
               <option disabled={true}>Choose Resource</option>
-              {resource?.map((item: any, index: any) => (
+              {placeUser?.map((item: any, index: any) => (
                 <option value={item?.resourceId} key={index}>
                   {item.resourceName}
                 </option>
@@ -220,7 +224,7 @@ const UserDetails = () => {
               type="text"
               name="ratingScore"
               id="ratingScore"
-              className="w-[60%] h-[32px] outline-2 border-black border-2"
+              className="w-[60%] h-[32px] outline-2 pl-4 border-black border-2"
               onChange={handleChange}
             />
           </div>

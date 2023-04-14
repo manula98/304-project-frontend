@@ -5,6 +5,18 @@ import { toast } from "react-toastify";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Book = () => {
+  //for book now form
+  interface User1 {
+    token: number;
+    user: object;
+    // add any other properties that your user object has
+  }
+
+  const [userdetails, setUserDetails] = useState<any>(
+    localStorage.getItem("loggedUser")
+  );
+  const user1: User1 | null = userdetails ? JSON.parse(userdetails) : null;
+
   const userJson = localStorage.getItem("loggedUser");
   const userEmail = localStorage.getItem("userEmail");
   const user: User | null = userJson ? JSON.parse(userJson).user : null;
@@ -75,8 +87,8 @@ const Book = () => {
         // localStorage.setItem("loggedUser", JSON.stringify(response.data.data));
         // localStorage.setItem("userId", data.userId);
         toast.success("Reservation Successful");
-        navigate("/");
-        navigate(0);
+        // navigate("/");
+        // navigate(0);
         return;
       } else {
         // toast.error(result.data.user.message);
@@ -136,6 +148,7 @@ const Book = () => {
                 className="inputCheck"
                 onChange={(e) => handleChange(e)}
               >
+                <option> Choose Resource </option>
                 {placesUser?.map((item: any, index: any) => (
                   <option value={item.resourceId} key={index}>
                     {item?.resourceName}

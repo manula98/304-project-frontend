@@ -49,11 +49,11 @@ const SideBarData = [
     link: "/addAdministrative",
     icon: FaUserAlt,
   },
-  {
-    title: "Update Administrative",
-    link: "/updateAdministrative",
-    icon: FaUserCog,
-  },
+  // {
+  //   title: "Update Administrative",
+  //   link: "/updateAdministrative",
+  //   icon: FaUserCog,
+  // },
   {
     title: "See All Administrative",
     link: "/seeAllAdministrative",

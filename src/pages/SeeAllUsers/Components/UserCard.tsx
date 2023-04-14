@@ -159,7 +159,7 @@ const UserCard = ({
             className="w-[50px] h-[50px] rounded-[50px] text-white bg-red-600 hover:bg-red-500 font-bold text-[15px] ml-[10px]"
             onClick={handleUserDelete}
           >
-            <div className="ml-[15px]">
+            <div className="ml-[17px]">
               <FaTrash />
             </div>
           </button>

@@ -44,7 +44,7 @@ const AddCategory = () => {
         // console.log(response.data.data);
         // localStorage.setItem("loggedUser", JSON.stringify(response.data.data));
         // localStorage.setItem("userId", data.userId);
-        toast.success("Category Add Successful");
+        toast.success("Category Added Successful");
         // navigate("/");
         // navigate(0);
         return;
