@@ -64,6 +64,70 @@ const ReservationCard = ({
       .catch((err) => console.error(err));
   };
 
+  //accept mail
+
+  const handleAcceptMail = (e: any) => {
+    var config = {
+      method: "post",
+      url: `${process.env.REACT_APP_API_BASE_URL}/acceptMailSend/${userId}`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: userId,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(response);
+        if (response.data.status === 1) {
+          console.log(response.data);
+          // window.location.reload();
+          toast.success("Mail Send");
+          // navigate("/login");
+          // navigate(0);
+          return;
+        } else {
+          toast.error("Mail not send");
+          console.log(response.data.message);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  //cancel mail
+
+  const handleCancelMail = (e: any) => {
+    var config = {
+      method: "post",
+      url: `${process.env.REACT_APP_API_BASE_URL}/cancelMailSend/${userId}`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: userId,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(response);
+        if (response.data.status === 1) {
+          console.log(response.data);
+          // window.location.reload();
+          toast.success("Mail Send");
+          // navigate("/login");
+          // navigate(0);
+          return;
+        } else {
+          toast.error("Mail not send");
+          console.log(response.data.message);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="flex justify-around items-start bg-slate-900 w-[95%] h-[110px] rounded-[25px]">
       <div className="">
@@ -110,7 +174,10 @@ const ReservationCard = ({
       {/* </div> */}
       <div className="flex justify-around -mt-8">
         <div className="mt-[60px]">
-          <button className="w-[50px] h-[50px] rounded-[50px] text-white bg-green-600 hover:bg-green-400 font-bold text-[15px]">
+          <button
+            className="w-[50px] h-[50px] rounded-[50px] text-white bg-green-600 hover:bg-green-400 font-bold text-[15px]"
+            onClick={handleAcceptMail}
+          >
             <div className="flex justify-center">
               <FaCheck />
             </div>
@@ -119,7 +186,10 @@ const ReservationCard = ({
         <div className="mt-[60px]">
           <button
             className="w-[50px] h-[50px] rounded-[50px] ml-4 text-white bg-red-600 hover:bg-red-400 font-bold text-[15px]"
-            onClick={handleDelete}
+            onClick={(e) => {
+              handleDelete(e);
+              handleCancelMail(e);
+            }}
           >
             <div className="flex justify-center">
               <FaTrash />

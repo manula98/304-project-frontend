@@ -27,7 +27,7 @@ code {
 
 
   .admin-side-nav {
-      @apply z-20 flex-shrink-0 block w-64 h-screen overflow-y-auto bg-slate-400 rounded-tr-lg rounded-br-lg;
+      @apply z-20 flex-shrink-0 block w-64 h-screen rounded-tr-lg rounded-br-lg bg-slate-400;
   }
 
 

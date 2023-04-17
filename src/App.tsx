@@ -216,7 +216,7 @@ function App() {
             <>
               <NavBar />
               <AdminDashBoardHome />
-              {/* <Footer /> */}
+              <Footer />
             </>
           }
         />

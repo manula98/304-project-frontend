@@ -4,6 +4,7 @@ import "./Signup.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function SignUp() {
   const [fname, setFname] = useState<any>();
@@ -27,7 +28,7 @@ function SignUp() {
 
   const navigate = useNavigate();
   //Hnadle form submit
-  const handleSubmit = (e: any) => {
+  const handleRegister = (e: any) => {
     e.preventDefault();
 
     const newUser = {
@@ -75,6 +76,12 @@ function SignUp() {
     }
   };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   return (
     <div style={{ marginTop: "30px", marginBottom: "30px" }}>
       <form action="" method="" className="sign">
@@ -89,10 +96,18 @@ function SignUp() {
             className="input-text"
             id="fname"
             placeholder="First Name"
+            // {...register("fname", {
+            //   required: true,
+            // })}
+            // variant="outlined"
+            // />
             onChange={(e) => {
               setFname(e.target.value);
             }}
           />
+          {/* {errors.fname && (
+            <p className="text-xs text-red-600">First name is required</p>
+          )} */}
         </div>
         <div className="input-section">
           <label className="input-label" htmlFor="lname">
@@ -183,7 +198,7 @@ function SignUp() {
           />
         </div>
         {isPasswordMismatch && <p>Password mismatch</p>}
-        <button className="submit" onClick={(e) => handleSubmit(e)}>
+        <button className="submit" onClick={(e) => handleRegister(e)}>
           Register
         </button>
       </form>

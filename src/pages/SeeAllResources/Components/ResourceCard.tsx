@@ -46,7 +46,7 @@ export const ResourceCard = ({
   console.log("AA>>");
 
   return (
-    <div className="bg-slate-900 w-[95%] h-[100px] rounded-[25px] mt-[10px] mb-[20px] ml-[20px]">
+    <div className="bg-slate-900 w-[95%] h-[110px] rounded-[25px] mt-[10px] mb-[20px] ml-[20px]">
       <div className="flex justify-between items-center mt-[30px]">
         <div className="w-full ml-[20px]">
           <h1 className="text-white text-[20px] font-bold">Resource Name</h1>
@@ -58,7 +58,9 @@ export const ResourceCard = ({
         </div>
         <div className="w-full ml-[20px]">
           <h1 className="text-white text-[20px] font-bold">Description</h1>
-          <h1 className="text-white text-[12px] font-bold">{description}</h1>
+          <h1 className="text-white text-[12px] font-bold w-[70%]">
+            {description}
+          </h1>
         </div>
         <div className="-mt-[20px]">
           <div className="mr-[10px]">

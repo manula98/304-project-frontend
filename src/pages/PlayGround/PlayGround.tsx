@@ -100,7 +100,7 @@ const PlayGround = () => {
           <p id="rate-number">256 ratings</p>
           <div>
             <h1 id="reviews-text">Reviews</h1>
-            <div className="reviews-section">
+            <div className="overflow-y-scroll reviews-section">
               {feedbacks?.map((f: any) => (
                 <>
                   <FeedbackCard feedback={f.feedbackText} />
